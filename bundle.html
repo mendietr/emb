@@ -47,88 +47,57 @@
 <body>
     <h1>El más barato</h1>
     <div id="test"></div>
-    <script>function capturarValores() {
-        var producto1 = document.getElementById('producto1').value;
-        var precio1 = document.getElementById('precio1').value;
-        var peso1 = document.getElementById('peso1').value;
-        var producto2 = document.getElementById('producto2').value;
-        var precio2 = document.getElementById('precio2').value;
-        var peso2 = document.getElementById('peso2').value;  
-        console.log("Los datos ingresados son:");
-      console.log("- Primer artículo:", producto1, "Precio:", precio1, "Peso:", peso1);
-      console.log("- Segundo artículo:", producto2, "Precio:", precio2, "Peso:", peso2);
-    }
-    
-    const precioa = precio1/peso1;
-    
-    const preciob = precio2/peso2;
-    
-    function compararPrecios() {
+    <script>
+      function compararPrecios() {
       var producto1 = document.getElementById('producto1').value;
       var precio1 = parseFloat(document.getElementById('precio1').value);
+      var peso1 = parseFloat(document.getElementById('peso1').value);
       var producto2 = document.getElementById('producto2').value;
       var precio2 = parseFloat(document.getElementById('precio2').value);
+      var peso2 = parseFloat(document.getElementById('peso2').value);
       var resultadoElement = document.getElementById('resultado');
       
-      if (precio1 < precio2) {
-        resultadoElement.innerHTML = `El producto ${producto1} es más barato que ${producto2} porque cuesta: ${precio1}<br>
-                                      El producto ${producto2} cuesta ${precio2}`;
-      } else if (precio1 === precio2) {
-        resultadoElement.innerHTML = `El producto ${producto2} cuesta lo mismo que ${producto1} porque cuesta: ${precio1}`;
+      var precioa = precio1 / peso1;
+      var preciob = precio2 / peso2;
+      
+      if (precioa < preciob) {
+        resultadoElement.innerHTML = `El producto ${producto1} es más barato que ${producto2} porque cuesta: ${precioa}<br>
+                                      El producto ${producto2} cuesta ${preciob}`;
+      } else if (precioa === preciob) {
+        resultadoElement.innerHTML = `El producto ${producto2} cuesta lo mismo que ${producto1} porque cuesta: ${precioa}`;
       } else {
-        resultadoElement.innerHTML = `El producto ${producto1} es más caro que ${producto2} porque cuesta: ${precio1}<br>
-                                      El producto ${producto2} cuesta ${precio2}`;
+        resultadoElement.innerHTML = `El producto ${producto1} es más caro que ${producto2} porque cuesta: ${precioa}<br>
+                                      El producto ${producto2} cuesta ${preciob}`;
       }
     }
-    
-    document.write('El producto: ' + producto1 + ' cuesta ' + precioa)
-    document.write('<br/>');
-    document.write('El producto: ' + producto2 + ' cuesta ' + preciob)</script>
-    <body>
-  <!-- <h2>Interfaz de entrada</h2>
+  </script>
+</head>
+<body>
+  <h2>Comparación de productos</h2>
   
-  <label for="producto1">Primer artículo:</label>
+  <label for="producto1">Primer producto:</label>
   <input type="text" id="producto1">
   <br>
-  <label for="precio1">Precio del primer artículo:</label>
-  <input type="text" id="precio1">
+  <label for="precio1">Precio del primer producto:</label>
+  <input type="number" id="precio1">
   <br>
-  <label for="peso1">Peso del primer artículo:</label>
-  <input type="text" id="peso1">
+  <label for="peso1">Peso del primer producto:</label>
+  <input type="number" id="peso1">
   <br>
   <br>
-  <label for="producto2">Segundo artículo:</label>
+  <label for="producto2">Segundo producto:</label>
   <input type="text" id="producto2">
   <br>
-  <label for="precio2">Precio del segundo artículo:</label>
-  <input type="text" id="precio2">
+  <label for="precio2">Precio del segundo producto:</label>
+  <input type="number" id="precio2">
   <br>
-  <label for="peso2">Peso del segundo artículo:</label>
-  <input type="text" id="peso2">
+  <label for="peso2">Peso del segundo producto:</label>
+  <input type="number" id="peso2">
   <br>
   <br>
-  <button onclick="capturarValores()">Capturar Valores</button>
-</body> -->
-<body>
-    <h2>Comparación de productos</h2>
-    
-    <label for="producto1">Primer producto:</label>
-    <input type="text" id="producto1">
-    <br>
-    <label for="precio1">Precio del primer producto:</label>
-    <input type="number" id="precio1">
-    <br>
-    <br>
-    <label for="producto2">Segundo producto:</label>
-    <input type="text" id="producto2">
-    <br>
-    <label for="precio2">Precio del segundo producto:</label>
-    <input type="number" id="precio2">
-    <br>
-    <br>
-    <button onclick="compararPrecios()">Comparar Precios</button>
-    <br>
-    <br>
-    <div id="resultado"></div>
+  <button onclick="compararPrecios()">Comparar Precios</button>
+  <br>
+  <br>
+  <div id="resultado"></div>
   </body>
 </html>
